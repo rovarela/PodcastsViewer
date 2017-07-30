@@ -10,7 +10,7 @@ class EpisodeDetails extends Component {
             return (item.id===episodeId);
         })[0];
         return(
-            <div>
+            <div className="pv-episode-detail">
                 <h2> {episode.title} </h2>
                 <p> {episode.summary}</p>
                 <audio src={episode.audioUrl} controls></audio>

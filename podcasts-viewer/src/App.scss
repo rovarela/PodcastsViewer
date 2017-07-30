@@ -5,6 +5,7 @@
 }
 header{
   border-bottom:1px solid $color-gray;
+  padding:10px 20px 10px 20px;
   h1{
     font-size: 18px;
     font-family: $font-primary;
@@ -12,4 +13,8 @@ header{
     text-decoration: none;
     cursor:pointer;
   }
+}
+
+a:-webkit-any-link{
+  text-decoration: none;
 }

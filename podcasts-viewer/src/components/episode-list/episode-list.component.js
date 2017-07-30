@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
+import './episode-list.component.css';
+
 export function EpisodeList (props) {
             
     const episodes = props.episodes;
     const podcastId = props.id;
     const listEpisodes = episodes.map((episode) =>
-        <div key={episode.id}>
-            <Link to={{pathname:`/podcast/${podcastId}/episode/${episode.id}`, state:{episodes:episodes, podcasts:props.podcasts}}}>
-                <div>
+        <div key={episode.id} className="pv-table-row">
+            <div>
+                <Link to={{pathname:`/podcast/${podcastId}/episode/${episode.id}`, state:{episodes:episodes, podcasts:props.podcasts}}}>
                     <p>{episode.title}</p>
-                </div>
-            </Link>
+                </Link>
+            </div>
             <div>
                 <p>{episode.releaseDate}</p>
             </div>
@@ -23,12 +25,12 @@ export function EpisodeList (props) {
                 
     return (
                     
-        <div>
-            <div>
+        <div className="pv-episodes-list-container">
+            <div className="pv-episodes-list-heading">
                 <p>Episodes {episodes.length}</p>
             </div>
-            <div>
-                <div class="table-header">
+            <div className="pv-episodes-list-table">
+                <div className="pv-table-header">
                     <div>
                         <label>Title</label>
                     </div>
@@ -39,7 +41,7 @@ export function EpisodeList (props) {
                         <label>Duration</label>
                     </div>
                 </div>
-                <div class="table-body">
+                <div className="pv-table-body">
                     {listEpisodes}
                 </div>
             </div>

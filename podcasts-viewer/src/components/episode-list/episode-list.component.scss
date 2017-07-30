@@ -1,0 +1,42 @@
+@import '../../styles/_main.scss';
+
+.pv-episodes-list-container{
+    width:70%;
+}
+
+.pv-episodes-list-heading{
+    margin-bottom:10px;
+    @include pv-container(1%);
+    p{
+        font-weight: 700;
+        font-family: $font-secondary;
+        color:$color-black;
+        font-size: 16px;
+    }
+}
+
+.pv-episodes-list-table{
+    @include pv-container(0%);
+    display: table;
+}
+
+.pv-table-row, .pv-table-header{
+    display:table-row;
+    div{
+        display:table-cell;
+        padding: 1%;
+    }
+}
+.pv-table-row:nth-child(even){
+    background-color:$color-gray;
+}
+.pv-table-row:nth-child(odd){
+    background-color:$color-white;
+}
+
+.pv-table-header label{
+    font-weight: 700;
+    font-family: $font-secondary;
+    color:$color-black;
+    font-size: 14px;
+}
