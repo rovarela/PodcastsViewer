@@ -71,12 +71,12 @@ class PodcastDetails extends Component {
         
         
         return(
-            <div>
-                <div>
-                    <img src={podcast["im:image"] && podcast["im:image"][0].label} />
-                    <p> {podcast.title && podcast.title.label}</p>
-                    <p> by {podcast["im:artist"] && podcast["im:artist"].label}</p>
-                    <p> Description: </p>
+            <div  className="pv-podcast-details-container">
+                <div className="pv-podcast-details-right">
+                    <img src={podcast["im:image"] && podcast["im:image"][2].label} alt={podcast.title.label} />
+                    <h3> {podcast.title && podcast.title.label}</h3>
+                    <h5> by {podcast["im:artist"] && podcast["im:artist"].label}</h5>
+                    <label> Description: </label>
                     <p>{podcast.summary && podcast.summary.label}</p>
                 </div>
                 <Switch>
