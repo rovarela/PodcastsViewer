@@ -4,7 +4,8 @@ import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import './podcasts.component.css';
 
 import PodcastDetails from '../podcast-details/podcast-details.component';
-import {fetchPodcasts} from '../../services/api.service'
+import {fetchPodcasts} from '../../services/api.service';
+import {PodcastList} from '../../components/podcast-list/podcast-list.component';
 
 class Podcasts extends Component {
 
@@ -12,6 +13,8 @@ class Podcasts extends Component {
         super(props);
         this.state = {podcasts_original: [], podcasts_list: []};
         this.fetchPodcasts = this.fetchPodcasts.bind(this);
+        this.renderPodcastList = this.renderPodcastList.bind(this);
+        this.handleFilterChange = this.handleFilterChange.bind(this);
     }
 
     componentDidMount() {
@@ -25,7 +28,7 @@ class Podcasts extends Component {
                 }
         ).then(
                 (json) => {
-                    console.log('parsed json', json);
+                    console.log(json.feed);
                     this.setState({
                         podcasts_original: json.feed.entry,
                         podcasts_list: json.feed.entry
@@ -43,12 +46,26 @@ class Podcasts extends Component {
     renderPodcastList() {
 
         return(
-                <div>
-                    this is the podcast list
-                </div>           
+                 <div>
+                    <div class="toolbar-search" >
+                        <div> {this.state.podcasts_list.length} </div>
+                        <input type="text" value={this.state.filtervalue} onChange={this.handleFilterChange} placeholder="Search ..."/>
+                    </div>
+                    <div>
+                        <PodcastList podcasts={this.state.podcasts_list} />
+                    </div> 
+                </div>             
         );
 
     };
+
+    handleFilterChange(event) {
+        this.setState({
+            podcasts_list: this.state.podcasts_original.filter((item)=>{return ((item.title && item.title.label.toLowerCase().includes(event.target.value.toLowerCase())) || (item.author && item.author.name.label.toLowerCase().includes(event.target.value.toLowerCase())))})
+        });
+        console.log({value: event.target.value});
+        //this.setState({value: event.target.value});
+    }
 
     render(){
         return(
