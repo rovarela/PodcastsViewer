@@ -7,9 +7,10 @@
     "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10"
   },
-   "scripts": {
+  "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
