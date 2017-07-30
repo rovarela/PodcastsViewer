@@ -19,10 +19,23 @@ class PodcastDetails extends Component {
     };
 
     render(){
+
+        const podcasts = this.props.location.state.podcasts;
+        const podcastId = this.props.match.params.podcastId;
+        const podcast=podcasts.filter((item) => {
+           return (item.id.attributes["im:id"]===podcastId);
+        })[0];
+        
         
         return(
             <div>
-                <div>Welcome to podcast details</div>
+                <div>
+                    <img src={podcast["im:image"] && podcast["im:image"][0].label} />
+                    <p> {podcast.title && podcast.title.label}</p>
+                    <p> by {podcast["im:artist"] && podcast["im:artist"].label}</p>
+                    <p> Description: </p>
+                    <p>{podcast.summary && podcast.summary.label}</p>
+                </div>
                 <Switch>
                     <Route path='/podcast/:podcastId/episode/:episodeId' component={EpisodeDetails}/>
                     <Redirect from="/podcast/:podcastId/episode" to="/" />

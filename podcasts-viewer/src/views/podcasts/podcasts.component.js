@@ -63,8 +63,6 @@ class Podcasts extends Component {
         this.setState({
             podcasts_list: this.state.podcasts_original.filter((item)=>{return ((item.title && item.title.label.toLowerCase().includes(event.target.value.toLowerCase())) || (item.author && item.author.name.label.toLowerCase().includes(event.target.value.toLowerCase())))})
         });
-        console.log({value: event.target.value});
-        //this.setState({value: event.target.value});
     }
 
     render(){
