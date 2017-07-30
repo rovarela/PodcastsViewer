@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Switch, Route, Link, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './podcasts.component.css';
 
@@ -22,11 +22,11 @@ class Podcasts extends Component {
     }
 
     isExpired(){
-        return new Date(localStorage.getItem("lastUpdate"))>((new Date(localStorage.getItem("lastUpdate")).getDate()) + 1);
+        return !localStorage.getItem("lastUpdate")||(new Date(localStorage.getItem("lastUpdate")).getDate()>((new Date(localStorage.getItem("lastUpdate")).getDate()) + 1));
     }
 
     fetchPodcasts(){
-        if (this.isExpired){
+        if (this.isExpired()){
             fetchPodcasts().then(
                     (response) => {
                         return response.json()

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './podcast-list.component.css';
@@ -9,7 +9,7 @@ export function PodcastList (props) {
          <li key={podcast.id.attributes['im:id']}>
              <Link to={{pathname:`/podcast/${podcast.id.attributes['im:id']}`, state:{podcasts:podcasts}}}>
                     <div className="pv-podcast-list-img">
-                        <img src={podcast["im:image"] && podcast["im:image"][2].label} />
+                        <img src={podcast["im:image"] && podcast["im:image"][2].label} alt={podcast.title.label} />
                     </div>
                     <div className="pv-podcast-list-info">
                         <h3>{podcast.title && podcast.title.label}</h3>
