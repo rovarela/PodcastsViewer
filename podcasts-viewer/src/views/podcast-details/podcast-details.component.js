@@ -3,10 +3,53 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './podcast-details.component.css';
 
+import {fetchPodcastDetails, fetchEpisodesInformation} from '../../services/api.service';
+import {parseEpisodesDetails} from '../../parsers/html.parser';
 import EpisodeDetails from '../episode-details/episode-details.component';
 
 
 class PodcastDetails extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {podcast: {}, episodes_list:[]};   
+    }
+
+    componentDidMount() {
+        this.fetchEpisodes(this.props.match.params.podcastId);  
+    }
+
+    fetchEpisodes(podcastId){
+        fetchPodcastDetails(podcastId).then(
+            (response) => {
+                return response.json()
+            }
+        ).then(
+            (json) => {
+                console.log('parsed json', json);
+                fetchEpisodesInformation(json.results[0].collectionViewUrl).then(
+                    (response) => {
+                        return response.text()
+                    }
+                ).then(
+                    (text) => {
+                        this.setState({
+                            episodes_list: parseEpisodesDetails(text)
+                        });
+                    }
+                ).catch(
+                    (ex) => {
+                        console.log('parsing failed', ex);
+                    }
+                );
+            }
+        ).catch(
+            (ex) => {
+                console.log('parsing failed', ex);
+            }
+        );
+    }
+
 
     renderPodcastList() {
 
