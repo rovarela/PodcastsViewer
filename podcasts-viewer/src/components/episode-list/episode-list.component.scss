@@ -18,13 +18,32 @@
 .pv-episodes-list-table{
     @include pv-container(0%);
     display: table;
+    width:100%;
 }
 
-.pv-table-row, .pv-table-header{
+.pv-table-row{
     display:table-row;
     div{
         display:table-cell;
         padding: 1%;
+        label{
+            font-weight: 700;
+            font-family: $font-secondary;
+            color:$color-black;
+            font-size: 14px;
+        }
+        p{
+            font-weight: 300;
+            font-family: $font-secondary;
+            color:$color-black;
+            font-size: 14px;
+        }
+        .pv-link{
+            color:$color-primary;
+        }
+        .pv-link:hover{
+            color:$color-primary-dark;
+        }
     }
 }
 .pv-table-row:nth-child(even){
@@ -32,11 +51,4 @@
 }
 .pv-table-row:nth-child(odd){
     background-color:$color-white;
-}
-
-.pv-table-header label{
-    font-weight: 700;
-    font-family: $font-secondary;
-    color:$color-black;
-    font-size: 14px;
 }
