@@ -47,9 +47,9 @@ class Podcasts extends Component {
 
         return(
                  <div>
-                    <div class="toolbar-search" >
-                        <div> {this.state.podcasts_list.length} </div>
-                        <input type="text" value={this.state.filtervalue} onChange={this.handleFilterChange} placeholder="Search ..."/>
+                    <div className="pv-toolbar-search" >
+                        <div className="pv-badge"> {this.state.podcasts_list.length} </div>
+                        <input type="text" value={this.state.filtervalue} onChange={this.handleFilterChange} placeholder="Filter podcasts..." className="pv-input"  />
                     </div>
                     <div>
                         <PodcastList podcasts={this.state.podcasts_list} />
@@ -61,7 +61,7 @@ class Podcasts extends Component {
 
     handleFilterChange(event) {
         this.setState({
-            podcasts_list: this.state.podcasts_original.filter((item)=>{return ((item.title && item.title.label.toLowerCase().includes(event.target.value.toLowerCase())) || (item.author && item.author.name.label.toLowerCase().includes(event.target.value.toLowerCase())))})
+            podcasts_list: this.state.podcasts_original.filter((item)=>{return ((item.title && item.title.label.toLowerCase().includes(event.target.value.toLowerCase())) || (item["im:artist"] && item["im:artist"].label.toLowerCase().includes(event.target.value.toLowerCase())))})
         });
     }
 

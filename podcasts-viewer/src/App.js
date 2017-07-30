@@ -14,7 +14,9 @@ class App extends Component {
             <Link to={`/`}><h1>Podcaster</h1></Link>
           </div>
         </header>
-        <Podcasts />
+        <div className="pv-container">
+          <Podcasts />
+        </div>
       </article>
     );
   }

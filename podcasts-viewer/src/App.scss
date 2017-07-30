@@ -1,24 +1,15 @@
-.App {
-  text-align: center;
-}
+@import 'styles/_main.scss';
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.pv-container{
+  padding:10px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+header{
+  border-bottom:1px solid $color-gray;
+  h1{
+    font-size: 18px;
+    font-family: $font-primary;
+    color:$color-primary;
+    text-decoration: none;
+    cursor:pointer;
+  }
 }

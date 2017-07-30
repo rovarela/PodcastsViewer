@@ -1,0 +1,50 @@
+@import '../../styles/_main.scss';
+
+.pv-podcast-list{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    list-style: none;
+    flex-wrap: wrap;
+    li{
+        text-align:center;
+        width:23%;
+        margin:1%;
+        h3{
+            text-transform: uppercase;
+            font-size:16px;
+            font-family: $font-primary;
+            text-decoration: none !important;
+            color:$color-black;
+            margin:0px;
+        }
+        h5{
+            font-size:14px;
+            font-family: $font-secondary;
+            text-decoration: none !important;
+            color:$color-gray-darker;
+            margin:0px;
+        }
+    }
+}
+
+.pv-podcast-list-img{
+    z-index:99;
+    img{
+        border-radius: 98px;
+        width: 120px;
+    }
+}
+
+.pv-podcast-list-info{
+    padding:100px 20px 40px 20px;
+    margin-top: -90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color:$color-white;
+    border:1px solid $color-gray;
+    -webkit-box-shadow: 0px 5px 18px 0px $color-gray;
+    -moz-box-shadow: 0px 5px 18px 0px $color-gray;
+    box-shadow: 0px 5px 18px 0px $color-gray;
+}
