@@ -21,24 +21,37 @@ class Podcasts extends Component {
         this.fetchPodcasts();  
     }
 
+    isExpired(){
+        return new Date(localStorage.getItem("lastUpdate"))>((new Date(localStorage.getItem("lastUpdate")).getDate()) + 1);
+    }
+
     fetchPodcasts(){
-        fetchPodcasts().then(
-                (response) => {
-                    return response.json()
-                }
-        ).then(
-                (json) => {
-                    console.log(json.feed);
-                    this.setState({
-                        podcasts_original: json.feed.entry,
-                        podcasts_list: json.feed.entry
-                    });
-                }
-        ).catch(
-                (ex) => {
-                    console.log('parsing failed', ex);
+        if (this.isExpired){
+            fetchPodcasts().then(
+                    (response) => {
+                        return response.json()
+                    }
+            ).then(
+                    (json) => {
+                        console.log(json.feed);
+                        this.setState({
+                            podcasts_original: json.feed.entry,
+                            podcasts_list: json.feed.entry,
+                        });
+                        localStorage.setItem("lastUpdate", (new Date()).toUTCString());
+                        localStorage.setItem("podcasts", JSON.stringify(json.feed.entry));
+                    }
+            ).catch(
+                    (ex) => {
+                        console.log('parsing failed', ex);
+            }
+            );
+        }else{
+            this.setState({
+                podcasts_original: JSON.parse(localStorage.getItem("podcasts")),
+                podcasts_list: JSON.parse(localStorage.getItem("podcasts")),
+            });
         }
-        );
     }
 
 
