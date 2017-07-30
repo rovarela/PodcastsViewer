@@ -6,13 +6,15 @@ import './podcast-details.component.css';
 import {fetchPodcastDetails, fetchEpisodesInformation} from '../../services/api.service';
 import {parseEpisodesDetails} from '../../parsers/html.parser';
 import EpisodeDetails from '../episode-details/episode-details.component';
+import {EpisodeList} from '../../components/episode-list/episode-list.component';
 
 
 class PodcastDetails extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {podcast: {}, episodes_list:[]};   
+        this.state = {podcast: {}, episodes_list:[]};
+        this.renderEpisodeList = this.renderEpisodeList.bind(this);   
     }
 
     componentDidMount() {
@@ -51,12 +53,10 @@ class PodcastDetails extends Component {
     }
 
 
-    renderPodcastList() {
+    renderEpisodeList() {
 
         return(
-                <div>
-                    this is the episode list
-                </div>           
+                <EpisodeList id={this.props.match.params.podcastId} podcasts={this.props.location.state.podcasts} episodes={this.state.episodes_list}/>          
         );
 
     };
