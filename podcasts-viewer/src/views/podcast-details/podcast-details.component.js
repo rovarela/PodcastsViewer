@@ -62,16 +62,21 @@ class PodcastDetails extends Component {
 
 
     renderEpisodeList() {
+        let podcasts=[];
+        if (isExpired()) podcasts = this.props.location.state.podcasts;
+        else podcasts = getInformation("podcasts");
 
         return(
-                <EpisodeList id={this.props.match.params.podcastId} podcasts={this.props.location.state.podcasts} episodes={this.state.episodes_list}/>          
+                <EpisodeList id={this.props.match.params.podcastId} podcasts={podcasts} episodes={this.state.episodes_list}/>          
         );
 
     };
 
     render(){
 
-        const podcasts = this.props.location.state.podcasts;
+        let podcasts=[];
+        if (isExpired()) podcasts = this.props.location.state.podcasts;
+        else podcasts = getInformation("podcasts");
         const podcastId = this.props.match.params.podcastId;
         const podcast=podcasts.filter((item) => {
            return (item.id.attributes["im:id"]===podcastId);

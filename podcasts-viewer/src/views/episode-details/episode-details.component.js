@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 
 import './episode-details.component.css';
 
+import {isExpired, getInformation} from '../../services/localstorage.service';
+
 class EpisodeDetails extends Component {
     render(){
+        let episodes=[];
+        if (isExpired()) episodes = this.props.location.state.episodes;
+        else episodes = getInformation("episodes");
         const episodeId = this.props.match.params.episodeId;
-        const episodes = this.props.location.state.episodes;
         const episode=episodes.filter((item) => {
             return (item.id===episodeId);
         })[0];
