@@ -8,7 +8,7 @@ import Podcasts from './views/podcasts/podcasts.component';
 class App extends Component {
   render() {
     return (
-      <article>
+      <div>
         <header>
           <div>
             <Link to={`/`}><h1>Podcaster</h1></Link>
@@ -17,7 +17,7 @@ class App extends Component {
         <div className="pv-container">
           <Podcasts />
         </div>
-      </article>
+      </div>
     );
   }
 }
