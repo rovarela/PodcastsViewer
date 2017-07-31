@@ -1,6 +1,6 @@
 @import 'styles/main.scss';
 
-.pv-container{
+.container{
   padding:10px;
 }
 header{
@@ -11,8 +11,6 @@ header{
     flex-direction: row;
     justify-content: space-between;
     h1{
-      font-size: 18px;
-      font-family: $font-primary;
       color:$color-primary;
       text-decoration: none;
       cursor:pointer;
@@ -20,9 +18,15 @@ header{
   }
 }
 
+footer{
+  display:flex;
+  justify-content: flex-end;
+  padding:10px;
+}
+
 .pv-loading-point{
     border-radius: 10px;
-    background-color: #2594D9;
+    background-color: $color-primary;
     width: 10px;
     height: 10px;
     margin-top: 20px;

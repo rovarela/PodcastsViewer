@@ -72,13 +72,13 @@ class PodcastDetails extends Component {
         
         return(
             <div  className="podcast-details-container">
-                <div className="podcast-details-right pv-container">
-                    <img src={podcast["im:image"] && podcast["im:image"][2].label} alt={podcast.title.label} />
-                    <h3> {podcast.title && podcast.title.label}</h3>
-                    <h5> by {podcast["im:artist"] && podcast["im:artist"].label}</h5>
-                    <label> Description: </label>
-                    <p>{podcast.summary && podcast.summary.label}</p>
-                </div>
+                <aside className="podcast-details-right pv-container">
+                        <img src={podcast["im:image"] && podcast["im:image"][2].label} alt={podcast.title.label} />
+                        <h3> {podcast.title && podcast.title.label}</h3>
+                        <h5> by {podcast["im:artist"] && podcast["im:artist"].label}</h5>
+                        <label> Description: </label>
+                        <p>{podcast.summary && podcast.summary.label}</p>
+                </aside>
                 <Switch>
                     <Route path='/podcast/:podcastId/episode/:episodeId' component={EpisodeDetails}/>
                     <Redirect from="/podcast/:podcastId/episode" to="/" />

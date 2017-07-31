@@ -20,9 +20,12 @@ class App extends Component {
              {point}
           </div>
         </header>
-        <div className="pv-container">
+        <section className="container">
           <Podcasts />
-        </div>
+        </section>
+        <footer>
+          <p>Podcast Viewer - Code available on <a href="https://github.com/rovarela/PodcastsViewer">Github</a></p>
+        </footer>
       </div>
     );
   }

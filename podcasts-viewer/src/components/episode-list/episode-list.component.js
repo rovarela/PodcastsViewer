@@ -25,7 +25,7 @@ export function EpisodeList (props) {
                 
     return (
                     
-        <div className="episodes-list-container">
+        <section className="episodes-list-container">
             <div className="episodes-list-heading pv-container">
                 <h3>Episodes {episodes.length}</h3>
             </div>
@@ -45,6 +45,6 @@ export function EpisodeList (props) {
                     {listEpisodes}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
