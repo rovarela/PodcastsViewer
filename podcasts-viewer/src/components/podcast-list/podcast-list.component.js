@@ -8,10 +8,10 @@ export function PodcastList (props) {
     const listItems = podcasts.map((podcast) =>
          <li key={podcast.id.attributes['im:id']}>
              <Link to={{pathname:`/podcast/${podcast.id.attributes['im:id']}`, state:{podcasts:podcasts}}}>
-                    <div className="pv-podcast-list-img">
+                    <div className="podcast-list-img">
                         <img src={podcast["im:image"] && podcast["im:image"][2].label} alt={podcast.title.label} />
                     </div>
-                    <div className="pv-podcast-list-info">
+                    <div className="podcast-list-info pv-container">
                         <h3>{podcast.title && podcast.title.label}</h3>
                         <h5>Author: {podcast["im:artist"] && podcast["im:artist"].label}</h5>
                     </div>
@@ -20,6 +20,6 @@ export function PodcastList (props) {
      );
                 
      return (
-         <ul className="pv-podcast-list">{listItems}</ul>
+         <ul className="podcast-list">{listItems}</ul>
      );
 }

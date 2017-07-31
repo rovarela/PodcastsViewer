@@ -1,20 +1,5 @@
-@import '../../styles/_main.scss';
-
-.pv-episode-detail{
+.episode-detail{
     width:70%;
-    @include pv-container(1%);
-    h2{
-        font-weight: 700;
-        font-family: $font-primary;
-        color:$color-black;
-        font-size: 16px;
-    }
-    p{
-       font-weight: 300;
-        font-family: $font-secondary;
-        color:$color-gray-darker;
-        font-size: 14px; 
-    }
     audio{
         width:60%;
     }

@@ -60,9 +60,9 @@ class Podcasts extends Component {
 
         return(
                  <div>
-                    <div className="pv-toolbar-search" >
-                        <div className="pv-badge"> {this.state.podcasts_list.length} </div>
-                        <input type="text" value={this.state.filtervalue} onChange={this.handleFilterChange} placeholder="Filter podcasts..." className="pv-input"  />
+                    <div className="toolbar-search" >
+                        <div className="pv-primary-badge"> {this.state.podcasts_list.length} </div>
+                        <input type="text" value={this.state.filtervalue} onChange={this.handleFilterChange} placeholder="Filter podcasts..." className="pv-input-filter"  />
                     </div>
                     <div>
                         <PodcastList podcasts={this.state.podcasts_list} />

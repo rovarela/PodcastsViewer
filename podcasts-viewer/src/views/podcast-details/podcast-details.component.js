@@ -71,8 +71,8 @@ class PodcastDetails extends Component {
         
         
         return(
-            <div  className="pv-podcast-details-container">
-                <div className="pv-podcast-details-right">
+            <div  className="podcast-details-container">
+                <div className="podcast-details-right pv-container">
                     <img src={podcast["im:image"] && podcast["im:image"][2].label} alt={podcast.title.label} />
                     <h3> {podcast.title && podcast.title.label}</h3>
                     <h5> by {podcast["im:artist"] && podcast["im:artist"].label}</h5>

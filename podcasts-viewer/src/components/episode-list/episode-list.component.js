@@ -8,7 +8,7 @@ export function EpisodeList (props) {
     const episodes = props.episodes;
     const podcastId = props.id;
     const listEpisodes = episodes.map((episode) =>
-        <div key={episode.id} className="pv-table-row">
+        <div key={episode.id} className="table-row  pv-striped-table-row">
             <div>
                 <Link to={{pathname:`/podcast/${podcastId}/episode/${episode.id}`, state:{episodes:episodes, podcasts:props.podcasts}}}>
                     <p className="pv-link">{episode.title}</p>
@@ -25,13 +25,13 @@ export function EpisodeList (props) {
                 
     return (
                     
-        <div className="pv-episodes-list-container">
-            <div className="pv-episodes-list-heading">
-                <p>Episodes {episodes.length}</p>
+        <div className="episodes-list-container">
+            <div className="episodes-list-heading pv-container">
+                <h3>Episodes {episodes.length}</h3>
             </div>
-            <div >
-                <div className="pv-episodes-list-table">
-                    <div className="pv-table-row">
+            <div className="pv-container">
+                <div className="episodes-list-table">
+                    <div className="table-row pv-striped-table-row">
                         <div>
                             <label>Title</label>
                         </div>

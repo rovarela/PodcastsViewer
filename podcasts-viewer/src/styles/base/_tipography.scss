@@ -1,0 +1,30 @@
+h1{
+    @include font-style($font-primary,$color-black,18px,700);
+}
+h2{
+     @include font-style($font-primary,$color-black,17px,700);
+}
+h3{
+     @include font-style($font-primary,$color-black,16px,700);
+}
+h4{
+     @include font-style($font-primary,$color-black,15px,700);
+}
+h5{
+     @include font-style($font-primary,$color-gray-darker,14px,700);
+}
+
+label{
+    @include font-style($font-secondary,$color-gray-darker,14px,700);
+}
+p{
+    @include font-style($font-secondary,$color-gray-darker,14px,300);
+}
+
+
+.pv-link{
+    @include font-style($font-secondary,$color-primary,14px,700);
+}
+.pv-link:hover{
+   color:$color-primary-dark;
+}

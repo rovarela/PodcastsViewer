@@ -1,0 +1,9 @@
+.pv-striped-table-row{
+    border-bottom:1px solid $color-gray-darker;
+}
+.pv-striped-table-row:nth-child(even){
+    background-color:$color-gray;
+}
+.pv-striped-table-row:nth-child(odd){
+    background-color:$color-white;
+}

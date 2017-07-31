@@ -1,54 +1,35 @@
-@import '../../styles/_main.scss';
-
-.pv-episodes-list-container{
+.episodes-list-container{
     width:70%;
 }
 
-.pv-episodes-list-heading{
+.episodes-list-heading{
     margin-bottom:10px;
-    @include pv-container(1%);
-    p{
-        font-weight: 700;
-        font-family: $font-secondary;
-        color:$color-black;
-        font-size: 16px;
+    h3{
+        margin:5px;
     }
 }
 
-.pv-episodes-list-table{
-    @include pv-container(0%);
+.episodes-list-table{
     display: table;
     width:100%;
+    p{
+        margin-top:5px;
+        margin-bottom:5px;
+    }
 }
 
-.pv-table-row{
+.table-row{
     display:table-row;
     div{
         display:table-cell;
         padding: 1%;
         label{
             font-weight: 700;
-            font-family: $font-secondary;
-            color:$color-black;
             font-size: 14px;
         }
         p{
             font-weight: 300;
-            font-family: $font-secondary;
-            color:$color-black;
             font-size: 14px;
         }
-        .pv-link{
-            color:$color-primary;
-        }
-        .pv-link:hover{
-            color:$color-primary-dark;
-        }
     }
-}
-.pv-table-row:nth-child(even){
-    background-color:$color-gray;
-}
-.pv-table-row:nth-child(odd){
-    background-color:$color-white;
 }

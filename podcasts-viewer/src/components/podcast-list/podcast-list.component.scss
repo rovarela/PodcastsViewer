@@ -1,34 +1,27 @@
-@import '../../styles/_main.scss';
-
-.pv-podcast-list{
+.podcast-list{
     display:flex;
     flex-direction:row;
     justify-content: space-around;
     list-style: none;
     flex-wrap: wrap;
+    padding-left:0px;
     li{
         text-align:center;
         width:23%;
         margin:1%;
         h3{
             text-transform: uppercase;
-            font-size:16px;
-            font-family: $font-primary;
             text-decoration: none !important;
-            color:$color-black;
             margin:0px;
         }
         h5{
-            font-size:14px;
-            font-family: $font-secondary;
             text-decoration: none !important;
-            color:$color-gray-darker;
             margin:0px;
         }
     }
 }
 
-.pv-podcast-list-img{
+.podcast-list-img{
     z-index:99;
     img{
         border-radius: 98px;
@@ -36,8 +29,7 @@
     }
 }
 
-.pv-podcast-list-info{
-    @include pv-container(1%);
+.podcast-list-info{
     padding:100px 20px 40px 20px;
     margin-top: -90px;
     display: flex;
