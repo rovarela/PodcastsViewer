@@ -7,10 +7,13 @@ Para ejecutar esta aplicación debes teclear:
 npm install
 
 Una vez instaladas todos los módulos, para ejecutar en modo desarrollo debes teclear el comando:
+
 npm start
 
 Para ejecutar el modo de producción:
+
 npm run build
+
 En este caso, el código de la distribución se generará en el directorio /build.
 
 # Detalles de desarrollo de la aplicación
