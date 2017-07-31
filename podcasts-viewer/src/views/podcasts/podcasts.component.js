@@ -5,6 +5,7 @@ import './podcasts.component.css';
 
 import PodcastDetails from '../podcast-details/podcast-details.component';
 import {fetchPodcasts} from '../../services/api.service';
+import {isExpired, saveInformation, getInformation} from '../../services/localstorage.service';
 import {PodcastList} from '../../components/podcast-list/podcast-list.component';
 
 class Podcasts extends Component {
@@ -21,12 +22,8 @@ class Podcasts extends Component {
         this.fetchPodcasts();  
     }
 
-    isExpired(){
-        return !localStorage.getItem("lastUpdate")||(new Date(localStorage.getItem("lastUpdate")).getDate()>((new Date(localStorage.getItem("lastUpdate")).getDate()) + 1));
-    }
-
     fetchPodcasts(){
-        if (this.isExpired()){
+        if (isExpired()){
             fetchPodcasts().then(
                     (response) => {
                         return response.json()
@@ -38,8 +35,7 @@ class Podcasts extends Component {
                             podcasts_original: json.feed.entry,
                             podcasts_list: json.feed.entry,
                         });
-                        localStorage.setItem("lastUpdate", (new Date()).toUTCString());
-                        localStorage.setItem("podcasts", JSON.stringify(json.feed.entry));
+                        saveInformation("podcasts",json.feed.entry);
                     }
             ).catch(
                     (ex) => {
@@ -48,8 +44,8 @@ class Podcasts extends Component {
             );
         }else{
             this.setState({
-                podcasts_original: JSON.parse(localStorage.getItem("podcasts")),
-                podcasts_list: JSON.parse(localStorage.getItem("podcasts")),
+                podcasts_original: getInformation("podcasts"),
+                podcasts_list: getInformation("podcasts"),
             });
         }
     }
